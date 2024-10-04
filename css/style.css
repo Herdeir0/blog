@@ -4,9 +4,12 @@
   --white: rgb(250, 250, 250);
   --grey: rgb(170, 170, 170);
   --black: rgb(20, 20, 20);
-  --fontSize: 1.5rem;
   --lineWeight: 1px;
   --contentWidth: 50rem;
+
+  --fontSize: 1.5rem;
+  --fontFamily: "Times New Roman";
+  --lineHeight: 2.5rem;
 }
 
 /* Globals */
@@ -14,13 +17,14 @@
 body {
   margin: 0px;
   padding: 0%;
-  font-size: var(--fontSize);
   background-color: var(--white);
   color: var(--black);
 
   overflow-x: hidden;
 
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
 }
 
 ::selection {
@@ -37,9 +41,9 @@ content {
 
 button {
   border: var(--lineWeight) solid var(--black);
-  border-radius: 16px;
+  border-radius: 999px;
   padding: 4px 12px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--fontFamily);
   font-size: var(--fontSize);
   background-color: var(--white);
 }
@@ -56,17 +60,6 @@ a {
   cursor: pointer;
 }
 
-post a {
-  border-bottom: 1px solid var(--black);
-}
-
-h1 {
-  display: inline;
-  font-size: var(--fontSize);
-  line-height: 160%;
-  font-weight: 100;
-}
-
 img {
   border-radius: 4px;
   border: var(--lineWeight) solid var(--black);
@@ -81,7 +74,7 @@ iframe {
   margin-top: 1em;
   border-radius: 4px;
   width: 100%;
-  height: fit-content;
+  aspect-ratio: 16 / 9;
 }
 
 /* Header */
@@ -101,6 +94,7 @@ navbar content {
 }
 
 navbar content a {
+  text-decoration: none;
   margin: auto 0px auto 0px;
 }
 
@@ -109,11 +103,19 @@ navbar content a button {
   width: fit-content;
 }
 
+h1 {
+  display: inline;
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+  font-weight: 100;
+}
+
 /* Blog Content */
 
 catalog-teaser {
   display: block;
   margin: 4em 0em;
+  text-decoration: none;
 }
 
 catalog-teaser button {
@@ -126,8 +128,13 @@ catalog-teaser button:after {
 
 text {
   display: block;
-  font-size: 1em;
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
   margin-top: 0.5em;
+}
+
+text a {
+  text-decoration: underline;
 }
 
 title {
@@ -144,7 +151,6 @@ date {
 post {
   display: block;
   padding: 1em 0em 1em;
-  line-height: 175%;
 }
 
 quote {
@@ -152,7 +158,7 @@ quote {
   margin: 1em 0em;
   border-left: var(--lineWeight) solid var(--black);
   padding-left: 1em;
-  line-height: 175%;
+  line-height: var(--lineHeight);
 }
 
 quote::before {
@@ -170,7 +176,7 @@ callout {
 br {
   content: "";
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: var(--lineHeight);
 }
 
 img {
