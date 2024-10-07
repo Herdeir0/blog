@@ -8,7 +8,7 @@
   --contentWidth: 50rem;
 
   --fontSize: 1.5rem;
-  --fontFamily: "Times New Roman";
+  --fontFamily: "Times New Roman", Times, serif;
   --lineHeight: 2.5rem;
 }
 
@@ -139,7 +139,7 @@ text a {
 
 title {
   display: block;
-  font-size: 1.25em;
+  font-size: calc(var(--fontSize) * 1.25);
   margin-top: 0.5em;
 }
 
@@ -162,7 +162,11 @@ quote {
 }
 
 quote::before {
-  content: "''";
+  content: "“";
+}
+
+quote::after {
+  content: "”";
 }
 
 callout {
@@ -171,6 +175,7 @@ callout {
 
   border: var(--lineWeight) solid var(--black);
   border-radius: 4px;
+  margin: 1em 0em;
 }
 
 br {
